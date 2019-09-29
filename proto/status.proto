@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package oaas;
+
+
+message Status {
+    Code code = 1;
+    string message = 2;
+}
+
+enum Code {
+    OK = 0;
+    UNKNOWN = 1;
+    BALANCE_INSUFFICIENT = 2;
+}

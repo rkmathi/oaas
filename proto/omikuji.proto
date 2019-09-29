@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package oaas;
+
+
+import "google/protobuf/timestamp.proto";
+
+import "status.proto";
+
+
+service Omikuji {
+    rpc DrawOmikuji (DrawOmikujiRequest) returns (DrawOmikujiResponse);
+}
+
+message DrawOmikujiRequest {
+    int32 seed = 1;
+    google.protobuf.Timestamp ts = 2;
+}
+
+message DrawOmikujiResponse {
+    oaas.Status status = 1;
+    OmikujiMessage omikuji = 2;
+}
+
+message OmikujiMessage {
+    string value = 1;
+}

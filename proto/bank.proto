@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package oaas;
+
+
+import "google/protobuf/empty.proto";
+
+import "status.proto";
+
+
+service Bank {
+    rpc GetBalance (google.protobuf.Empty) returns (GetBalanceResponse);
+    rpc UpdateBalance (UpdateBalanceRequest) returns (UpdateBalanceResponse);
+}
+
+// message GetBalanceRequest
+
+message GetBalanceResponse {
+    oaas.Status status = 1;
+    BalanceMessage balance = 2;
+}
+
+message UpdateBalanceRequest {
+    int32 delta = 1;
+}
+
+message UpdateBalanceResponse {
+    oaas.Status status = 1;
+    BalanceMessage balance = 2;
+}
+
+message BalanceMessage {
+    int32 amount = 1;
+}
