@@ -2,6 +2,14 @@
 
 Omikuji As A Service
 
+```text
+[HTTP client] <--HTTP--> [gateway] <--gRPC--> [omikuji service]
+                                 ^             ^
+                                 |             gRPC
+                                 |             v
+                                 -----gRPC--> [bank service]
+```
+
 
 # Usage
 
